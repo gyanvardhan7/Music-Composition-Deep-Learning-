@@ -1,0 +1,118 @@
+
+{% extends 'composer/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="jumbotron" style="background-color:#3b3b3f;color: white;margin-top: 10px;opacity: 0.9">
+	<h1 class="display-4">Let's Create Music</h1>
+	<p class="lead">PerMu is a one-page tool for building simple and beautiful piano compositions. Create a random composition or Create using your own sample.</p>
+	<hr class="my-3" style="border-color: white">
+	<p class="lead">
+		<a href="{% url 'composer:learn' %}" class="btn btn-lg btn-primary">Learn more</a>
+	</p>
+</div>
+
+
+<!-- Loading Icon -->
+<div id="loading" style="display:none;">
+	<img src="{% static 'composer/images/loader.gif' %}" alt="" />
+	<h4>Generating music</h4>
+</div>
+
+
+<!-- Part that disappears on loading -->
+<div id="disappear">
+
+	<div class="row">
+		<div class="col">
+			<form action="{% url 'composer:produce' %}" method="post" class="generateForm">
+
+				{% csrf_token %}
+				<p class="lead">
+					<input type="submit" name="produce" value="Compose Randomly" data-toggle="popover" title="generate music" data-placement="right" class="btn btn-lg btn-primary">
+				</p>
+			</form>	
+		</div>
+	</div>
+
+
+	<div class="row">
+
+		<div class="col">
+
+			<h3>OR</h3>
+
+		</div>
+	</div>
+
+
+	<div class ="row">
+		<div class="col">
+			<form method="post" enctype="multipart/form-data" action="{% url 'composer:upload' %}" class="generateForm">
+				{% csrf_token %}
+				<div class="form-group">
+					{{ form.file }}
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-lg">Upload</button>
+
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+
+
+	<div class="row">
+
+		<div class="col">
+
+			<h3>Music Ready</h3>
+
+		</div>
+	</div>
+
+
+	<div class="row">
+		<div class="col-md-4">
+
+			<form action="{% url 'composer:download' %}" method="post">
+
+				{% csrf_token %}
+				<p class="lead">
+					<input type="submit" name="download" value="MIDI" class="btn btn-lg btn-outline-secondary">
+				</p>
+			</form>	
+
+		</div>
+
+		<div class="col-md-4">
+
+			<form action="{% url 'composer:sheet' %}" method="post">
+
+				{% csrf_token %}
+				<p class="lead">
+					<input type="submit" name="sheet" value="Sheet" class="btn btn-lg btn-outline-secondary">
+				</p>
+			</form>	
+
+		</div>
+
+		<div class="col-md-4">
+			<audio controls>
+				<source src="{% static 'composer/output/play.mp3' %}" type="audio/mpeg">
+					Your browser does not support the audio element.
+				</audio>
+			</div>
+
+		</div>
+
+
+	</div>
+
+
+	{% endblock %}

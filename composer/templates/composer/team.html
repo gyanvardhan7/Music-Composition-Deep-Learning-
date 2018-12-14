@@ -1,0 +1,48 @@
+
+{% extends 'composer/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="jumbotron" style="background-color:#3b3b3f;color: white;margin-top: 10px;opacity: 0.9">
+	<h1 class="display-4">Our Team</h1>
+	<p class="lead">PerMu is created by following students</p>
+	<hr class="my-3" style="border-color: white">
+	<p class="lead">
+		<a href="{% url 'composer:learn' %}" class="btn btn-lg btn-primary">Learn more</a>
+	</p>
+</div>
+
+
+<div class="row">
+	<div class="col">
+		<div class="card">
+			<img src = "{% static "composer/images/dev.png" %}" alt="Avatar" style="width:100%">
+			<div class="container">
+				<h4><b>Gyan Vardhan</b></h4> 
+				<p>03014802715</p> 
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card">
+			<img src="{% static 'composer/images/dev.png' %}" alt="Avatar" style="width:100%">
+			<div class="container">
+				<h4><b>Aakash Chawla</b></h4> 
+				<p>00114802715</p> 
+			</div>
+		</div>
+	</div>
+	<div class="col">
+		<div class="card">
+			<img src="{% static 'composer/images/dev.png' %}" alt="Avatar" style="width:100%">
+			<div class="container">
+				<h4><b>Diwanshu Garg</b></h4> 
+				<p>02814802715</p> 
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

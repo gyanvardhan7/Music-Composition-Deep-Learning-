@@ -1,0 +1,55 @@
+
+{% extends 'composer/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="jumbotron" style="background-color:#3b3b3f;color: white;margin-top: 10px;opacity: 0.9">
+	<h1 class="display-4">Let's Create Music</h1>
+	<p class="lead">PerMu is a one-page tool for building simple and beautiful piano compositions. Create a random composition or Create using your own sample.</p>
+	<hr class="my-2" style="border-color: white">
+</div>
+
+
+<div class="row">
+	<div class="col">
+		<nav id="navbar-example3" class="navbar navbar-dark flex-column">
+			<a class="nav-link" href="#item-1">Introduction</a>
+			<a class="nav-link" href="#item-2">Recurrent Neural Networks</a>
+			<a class="nav-link" href="#item-3">Music21</a>
+			<a class="nav-link" href="#item-4">Keras</a>
+			<a class="nav-link" href="#item-5">Data</a>
+
+		</nav>
+	</div>
+
+	<div data-spy="scroll" data-target="#navbar-example3" data-offset="0" style="height:250px;overflow-y: scroll;position: relative;" class="col">
+		<h4 id="item-1">Introduction</h4>
+		<p>Neural networks are being used to improve all aspects of our lives. They provide us with recommendations for items we want to purchase, generate text based on the style of an author and can even be used to change the art style of an image. In recent years, there have been a number of projects on how to generate text using neural networks but a lack of projects on how to create music. In this project we went through how to create music using a recurrent neural network in Python using the Keras library.
+
+		</p>
+		<h4 id="item-2">Recurrent Neural Network</h4>
+		<p>A recurrent neural network is a class of artificial neural networks that make use of sequential information. They are called recurrent because they perform the same function for every single element of a sequence, with the result being dependent on previous computations. Whereas outputs are independent of previous computations in traditional neural networks.
+
+			In this project we used a BiDirectional Long Short-Term Memory (LSTM) network. They are a type of Recurrent Neural Network that can efficiently learn via gradient descent. Using a gating mechanism, LSTMs are able to recognise and encode long-term patterns. LSTMs are extremely useful to solve problems where the network has to remember information for a long period of time as is the case in music and text generation.
+
+		</p>
+		<h4 id="item-3">Music21</h4>
+		<p>Music21 is a Python toolkit used for computer-aided musicology. It allows us to teach the fundamentals of music theory, generate music examples and study music. The toolkit provides a simple interface to acquire the musical notation of MIDI files. Additionally, it allows us to create Note and Chord objects so that we can make our own MIDI files easily.
+
+		</p>
+		<h4 id="item-4">Keras</h4>
+		<p>Keras is a high-level neural networks API that simplifies interactions with Tensorflow. It was developed with a focus on enabling fast experimentation.
+
+		In this project we used the Keras library to create and train the BiDirectional LSTM model. Once the model was trained we used it to generate the musical notation for our music.</p>
+
+
+	</p>
+	<h4 id="item-5">Data</h4>
+	<p>we used piano music, mostly consisting of music from Final Fantasy soundtracks. We picked Final Fantasy music due to the very distinct and beautiful melodies that the majority of the pieces have and the sheer amount of pieces that exist. But any set of MIDI files consisting of a single instrument would work for our purposes.	</p>
+</div>
+</div>
+
+
+
+{% endblock %}
